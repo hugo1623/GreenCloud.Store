@@ -13,6 +13,8 @@ builder.Services.AddDbContext<StoreContext>(options => options.UseSqlServer(
     ));
 builder.Services.AddScoped<IProductsApplication, ProductsApplication>();//siempre que llames a esta interfaz voy a querer que loimplemente productAplication
 builder.Services.AddScoped<IProductsRepository, ProductsRepository>();
+builder.Services.AddScoped<IEmployeesApplication, EmployeesApplication>();
+builder.Services.AddScoped<IEmployeesRepository, EmployeesRepository>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
