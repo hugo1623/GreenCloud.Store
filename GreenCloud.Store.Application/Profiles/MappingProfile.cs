@@ -11,6 +11,10 @@ namespace GreenCloud.Store.Application.Profiles
             CreateMap<Product, ProductForListDto>();
             CreateMap<Product, ProductDetailDto>();
             CreateMap<ProductForCreateDto, Product>().ReverseMap();
+
+            CreateMap<Employee, EmployeeForListDto>();
+            CreateMap<Employee, EmployeeDetailDto>();
+            CreateMap<EmployeeForCreateDto, Employee>().ReverseMap();
         }
     }
 }

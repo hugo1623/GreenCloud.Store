@@ -1,10 +1,12 @@
-﻿using GreenCloud.Store.Entity;
+﻿using GreenCloud.Store.Application.Dtos;
 
 namespace GreenCloud.Store.Application.Interfaces
 {
     public interface IEmployeesApplication
     {
-        Task<List<Employee>> GetEmployees();
-        Task<Employee> GetEmployee(int id);
+        Task<List<EmployeeForListDto>> GetEmployees();
+        Task<EmployeeDetailDto> GetEmployee(int id);
+
+        Task InsetEmployee(EmployeeForCreateDto employeeForCreateDto);
     }
 }
