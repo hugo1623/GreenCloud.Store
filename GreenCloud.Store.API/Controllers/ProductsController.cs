@@ -1,6 +1,7 @@
-﻿using GreenCloud.Store.Application.Interfaces;
+﻿using AutoMapper;
+using GreenCloud.Store.Application.Dtos;
+using GreenCloud.Store.Application.Interfaces;
 using GreenCloud.Store.Entity;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace GreenCloud.Store.API.Controllers
@@ -17,17 +18,24 @@ namespace GreenCloud.Store.API.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<List<Product>>> GetAll()
+        public async Task<ActionResult<List<ProductForListDto>>> GetAll()
         {
             var products = await productsApplication.GetProducts();
             return products;
         }
 
         [HttpGet("{id:int}")]
-        public async Task<ActionResult<Product>> GetById(int id)
+        public async Task<ActionResult<ProductDetailDto>> GetById(int id)
         {
             var product = await productsApplication.GetProduct(id);
             return product;
+        }
+
+        [HttpPost]
+        public async Task<ActionResult> Insert([FromBody] ProductForCreateDto productForCreateDto)
+        {
+            await productsApplication.InsertProduct(productForCreateDto);
+            return Ok();
         }
     }
 }

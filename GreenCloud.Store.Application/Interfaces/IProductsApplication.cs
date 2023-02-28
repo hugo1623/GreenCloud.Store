@@ -1,10 +1,11 @@
-﻿using GreenCloud.Store.Entity;
+﻿using GreenCloud.Store.Application.Dtos;
 
 namespace GreenCloud.Store.Application.Interfaces
 {
     public interface IProductsApplication
     {
-        Task<List<Product>> GetProducts(); 
-        Task<Product> GetProduct(int id); 
+        Task<List<ProductForListDto>> GetProducts(); 
+        Task<ProductDetailDto> GetProduct(int id);
+        Task InsertProduct(ProductForCreateDto product);
     }
 }
