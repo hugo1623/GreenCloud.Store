@@ -29,5 +29,17 @@ namespace GreenCloud.Store.Repository.Implementations
             context.Products.Add(product);
             await context.SaveChangesAsync();
         }
+
+        public async Task UpdateProduct(Product product)
+        {
+            context.Products.Update(product);
+            await context.SaveChangesAsync();
+        }
+
+        public async Task DeleteProduct(Product product)
+        {
+            context.Products.Remove(product);
+            await context.SaveChangesAsync();
+        }
     }
 }

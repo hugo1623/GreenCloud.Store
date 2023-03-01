@@ -6,6 +6,8 @@ namespace GreenCloud.Store.Application.Interfaces
     {
         Task<List<ProductForListDto>> GetProducts(); 
         Task<ProductDetailDto> GetProduct(int id);
-        Task InsertProduct(ProductForCreateDto product);
+        Task InsertProduct(ProductForCreateDto productForCreateDto);
+        Task UpdateProduct(int id, ProductForEditDto productForEditDto);
+        Task DeleteProduct(int id);
     }
 }

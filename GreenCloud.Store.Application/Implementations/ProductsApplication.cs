@@ -32,11 +32,25 @@ namespace GreenCloud.Store.Application.Implementations
 
             return productDto;
         }
-
         public async Task InsertProduct(ProductForCreateDto productForCreateDto)
         {
             var productEntity = mapper.Map<Product>(productForCreateDto);
             await productsRepository.InsertProduct(productEntity);
         }
-    }
+
+        public async Task UpdateProduct(int id, ProductForEditDto productForEditDto)
+        {
+            var productEntity = await productsRepository.GetProduct(id);
+
+            mapper.Map(productForEditDto, productEntity);
+            await productsRepository.UpdateProduct(productEntity);
+            
+        }
+
+        public async Task DeleteProduct(int id)
+        {
+            var productEntity =await productsRepository.GetProduct(id);
+            await productsRepository.DeleteProduct(productEntity);
+        }
+    }   
 }
